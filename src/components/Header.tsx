@@ -1,0 +1,26 @@
+
+import { MessageSquare, Users } from "lucide-react";
+
+const Header = () => {
+  return (
+    <header className="bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg">
+      <div className="container mx-auto px-4 py-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <MessageSquare className="h-8 w-8" />
+            <div>
+              <h1 className="text-2xl font-bold">LehrerStimme Bayern</h1>
+              <p className="text-blue-100 text-sm">Feedback-Plattform für Lehrkräfte</p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-2 text-blue-100">
+            <Users className="h-4 w-4" />
+            <span className="text-sm">Ihre Stimme zählt</span>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
