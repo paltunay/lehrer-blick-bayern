@@ -1,5 +1,6 @@
 
 import { MessageSquare, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
@@ -23,9 +24,27 @@ const Header = () => {
               />
             </div>
           </div>
-          <div className="flex items-center space-x-2 text-blue-100">
-            <Users className="h-4 w-4" />
-            <span className="text-sm">Ihre Stimme zählt</span>
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+              <Button
+                onClick={() => window.open('https://www.mebis.bayern.de/', '_blank')}
+                variant="outline"
+                className="text-blue-600 border-blue-200 hover:bg-blue-50"
+              >
+                Teacher Login
+              </Button>
+              <Button
+                onClick={() => window.location.href = '/login'}
+                variant="outline"
+                className="text-blue-600 border-blue-200 hover:bg-blue-50"
+              >
+                ZDB Login
+              </Button>
+            </div>
+            <div className="flex items-center space-x-2 text-blue-100">
+              <Users className="h-4 w-4" />
+              <span className="text-sm">Ihre Stimme zählt</span>
+            </div>
           </div>
         </div>
       </div>
