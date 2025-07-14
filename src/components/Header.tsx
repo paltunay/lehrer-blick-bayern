@@ -25,9 +25,6 @@ const Header = () => {
               <Button onClick={() => window.location.href = '/teacher-login'} variant="outline" className="text-blue-600 border-blue-200 hover:bg-blue-50">
                 Teacher Login
               </Button>
-              <Button onClick={() => window.location.href = '/login'} variant="outline" className="text-blue-600 border-blue-200 hover:bg-blue-50">
-                ZDB Login
-              </Button>
             </div>
             <div className="flex items-center space-x-2 text-blue-100">
               <Users className="h-4 w-4" />

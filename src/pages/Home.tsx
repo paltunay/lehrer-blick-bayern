@@ -228,6 +228,11 @@ const Home = () => {
           <p className="text-sm text-blue-200">
             Im Auftrag des Bayerischen Staatsministeriums für Unterricht und Kultus
           </p>
+          <div className="mt-4">
+            <Button onClick={() => window.location.href = '/login'} variant="outline" className="text-blue-600 border-blue-200 hover:bg-blue-50">
+              ZDB Login
+            </Button>
+          </div>
         </div>
       </footer>
     </div>
