@@ -19,7 +19,7 @@ const Header = () => {
           </div>
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <Button onClick={() => window.location.href = '/teacher-register'} variant="outline" className="border-muted bg-neutral-500 hover:bg-neutral-400 text-[blue-60] text-slate-950">
+              <Button onClick={() => window.location.href = '/teacher-register'} variant="outline" className="border-muted text-[blue-60] text-slate-50 bg-slate-950 hover:bg-slate-800">
                 Teacher Registration
               </Button>
               <Button onClick={() => window.location.href = '/teacher-login'} variant="outline" className="text-blue-600 border-blue-200 hover:bg-blue-50">
