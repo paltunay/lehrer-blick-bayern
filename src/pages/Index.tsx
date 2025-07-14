@@ -5,7 +5,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Header from "@/components/Header";
 import FeedbackForm from "@/components/FeedbackForm";
 import FeedbackDashboard from "@/components/FeedbackDashboard";
-import { MessageSquareText, BarChart3, Info, Shield, Users, Target } from "lucide-react";
+import PollsSection from "@/components/PollsSection";
+import PollResults from "@/components/PollResults";
+import { MessageSquareText, BarChart3, Info, Shield, Users, Target, Vote, TrendingUp } from "lucide-react";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("submit");
@@ -55,10 +57,18 @@ const Index = () => {
         {/* Main Content */}
         <div className="flex justify-center">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-5xl">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsList className="grid w-full grid-cols-5 mb-8">
               <TabsTrigger value="submit" className="flex items-center space-x-2">
                 <MessageSquareText className="h-4 w-4" />
                 <span>Feedback senden</span>
+              </TabsTrigger>
+              <TabsTrigger value="polls" className="flex items-center space-x-2">
+                <Vote className="h-4 w-4" />
+                <span>Umfragen</span>
+              </TabsTrigger>
+              <TabsTrigger value="results" className="flex items-center space-x-2">
+                <TrendingUp className="h-4 w-4" />
+                <span>Ergebnisse</span>
               </TabsTrigger>
               <TabsTrigger value="dashboard" className="flex items-center space-x-2">
                 <BarChart3 className="h-4 w-4" />
@@ -72,6 +82,14 @@ const Index = () => {
 
             <TabsContent value="submit" className="flex justify-center">
               <FeedbackForm />
+            </TabsContent>
+
+            <TabsContent value="polls" className="flex justify-center">
+              <PollsSection />
+            </TabsContent>
+
+            <TabsContent value="results" className="flex justify-center">
+              <PollResults />
             </TabsContent>
 
             <TabsContent value="dashboard" className="flex justify-center">

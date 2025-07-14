@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MessageSquare, Calendar, MapPin, AlertCircle, BarChart } from "lucide-react";
+import { MessageSquare, Calendar, MapPin, AlertCircle } from "lucide-react";
 
 interface FeedbackItem {
   id: number;
@@ -17,7 +17,6 @@ interface FeedbackItem {
   timestamp: string;
   status: string;
   anonymous: boolean;
-  pollResponses?: Record<string, string>;
 }
 
 const FeedbackDashboard = () => {
@@ -109,34 +108,6 @@ const FeedbackDashboard = () => {
           </CardHeader>
           <CardContent>
             <p className="text-gray-700 mb-4 leading-relaxed">{item.message}</p>
-            
-            {/* Poll Responses */}
-            {item.pollResponses && Object.keys(item.pollResponses).length > 0 && (
-              <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-                <div className="flex items-center space-x-2 mb-3">
-                  <BarChart className="h-4 w-4 text-blue-600" />
-                  <h4 className="font-medium text-blue-800">Umfrageantworten</h4>
-                </div>
-                <div className="space-y-2">
-                  {Object.entries(item.pollResponses).map(([questionId, response]) => {
-                    const questionTitles: Record<string, string> = {
-                      workload: "Arbeitsbelastung",
-                      digitization: "Digitale Ausstattung", 
-                      support: "Ministeriums-Unterstützung",
-                      training: "Fortbildungsangebot"
-                    };
-                    return (
-                      <div key={questionId} className="text-sm">
-                        <span className="font-medium text-blue-700">
-                          {questionTitles[questionId] || questionId}:
-                        </span>
-                        <span className="ml-2 text-blue-600">{response}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
             
             <div className="flex items-center justify-between pt-3 border-t border-gray-100">
               <div className="text-sm text-gray-500">
