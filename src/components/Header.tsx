@@ -13,9 +13,16 @@ const Header = () => {
               <p className="text-blue-100 text-sm">Feedback-Plattform für Lehrkräfte</p>
             </div>
           </div>
-          <div className="flex items-center space-x-2 text-blue-100">
-            <Users className="h-4 w-4" />
-            <span className="text-sm">Ihre Stimme zählt</span>
+          <div className="flex items-center space-x-4">
+            <img 
+              src="/lovable-uploads/c9ee70a6-5fa5-466b-97f7-51be52c56702.png" 
+              alt="Zukunft Digitale Bildung Logo" 
+              className="h-12 w-auto"
+            />
+            <div className="flex items-center space-x-2 text-blue-100">
+              <Users className="h-4 w-4" />
+              <span className="text-sm">Ihre Stimme zählt</span>
+            </div>
           </div>
         </div>
       </div>
