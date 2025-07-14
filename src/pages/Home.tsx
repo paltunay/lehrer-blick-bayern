@@ -28,11 +28,7 @@ const Home = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Ihre Stimme für bessere Bildung in Bayern
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Als Lehrkraft kennen Sie die Herausforderungen des Schulalltags am besten. 
-            Teilen Sie Ihr Feedback direkt mit dem Bayerischen Kultusministerium und 
-            helfen Sie dabei, das Bildungssystem zu verbessern.
-          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">Als Lehrkraft erleben Sie die Chancen und Herausforderungen digitaler Bildung direkt. Teilen Sie Ihr Feedback direkt mit uns und helfen Sie dabei, das Bildungssystem zu verbessern.</p>
         </div>
 
         {/* Main Content */}
