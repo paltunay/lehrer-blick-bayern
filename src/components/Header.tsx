@@ -27,6 +27,13 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <Button
+                onClick={() => window.location.href = '/teacher-register'}
+                variant="outline"
+                className="text-blue-600 border-blue-200 hover:bg-blue-50"
+              >
+                Teacher Registration
+              </Button>
+              <Button
                 onClick={() => window.open('https://www.mebis.bayern.de/', '_blank')}
                 variant="outline"
                 className="text-blue-600 border-blue-200 hover:bg-blue-50"
