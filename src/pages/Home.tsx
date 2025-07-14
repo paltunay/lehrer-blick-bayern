@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import Header from "@/components/Header";
 import FeedbackForm from "@/components/FeedbackForm";
 import PollsSection from "@/components/PollsSection";
-import { MessageSquareText, Info, Shield, Users, Target, Vote, Home as HomeIcon } from "lucide-react";
+import { MessageSquareText, Info, Shield, Users, Target, Vote, Home as HomeIcon, AlertCircle } from "lucide-react";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("home");
+  const [isTeacherLoggedIn, setIsTeacherLoggedIn] = useState(false);
+  const [teacherUser, setTeacherUser] = useState<any>(null);
+
+  useEffect(() => {
+    // Check if teacher is logged in
+    const teacherAuthenticated = localStorage.getItem("teacher_authenticated") === "true";
+    const teacherUserData = localStorage.getItem("teacher_user");
+    
+    if (teacherAuthenticated && teacherUserData) {
+      setIsTeacherLoggedIn(true);
+      setTeacherUser(JSON.parse(teacherUserData));
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
@@ -81,10 +95,16 @@ const Home = () => {
                     Kommunikationsmöglichkeit mit dem Kultusministerium zu bieten.
                   </p>
                   <Button 
-                    onClick={() => setActiveTab("feedback")}
+                    onClick={() => {
+                      if (isTeacherLoggedIn) {
+                        setActiveTab("feedback");
+                      } else {
+                        window.location.href = '/teacher-login';
+                      }
+                    }}
                     className="bg-blue-600 hover:bg-blue-700 text-white"
                   >
-                    Feedback geben
+                    {isTeacherLoggedIn ? 'Feedback geben' : 'Anmelden für Feedback'}
                   </Button>
                 </div>
               </div>
@@ -92,20 +112,57 @@ const Home = () => {
 
             <TabsContent value="feedback" className="flex justify-center">
               <div className="w-full max-w-4xl">
-                <Tabs defaultValue="text" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2 mb-6">
-                    <TabsTrigger value="text">Feedback senden</TabsTrigger>
-                    <TabsTrigger value="polls">Umfragen</TabsTrigger>
-                  </TabsList>
-                  
-                  <TabsContent value="text">
-                    <FeedbackForm />
-                  </TabsContent>
-                  
-                  <TabsContent value="polls">
-                    <PollsSection />
-                  </TabsContent>
-                </Tabs>
+                {!isTeacherLoggedIn ? (
+                  <div className="bg-white rounded-lg shadow-sm border border-blue-100 p-8 text-center">
+                    <AlertCircle className="h-16 w-16 text-blue-600 mx-auto mb-4" />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      Anmeldung erforderlich
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                      Um Feedback zu geben, müssen Sie sich als Lehrkraft anmelden. 
+                      Nur verifizierte Lehrkräfte mit einer @schule.bayern.de E-Mail-Adresse 
+                      können an der Feedback-Plattform teilnehmen.
+                    </p>
+                    <div className="flex justify-center space-x-4">
+                      <Button 
+                        onClick={() => window.location.href = '/teacher-login'}
+                        className="bg-blue-600 hover:bg-blue-700 text-white"
+                      >
+                        Anmelden
+                      </Button>
+                      <Button 
+                        onClick={() => window.location.href = '/teacher-register'}
+                        variant="outline"
+                        className="text-green-600 border-green-200 hover:bg-green-50"
+                      >
+                        Registrieren
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <div className="bg-white rounded-lg shadow-sm border border-blue-100 p-4 mb-6">
+                      <p className="text-green-600 font-medium">
+                        Willkommen, {teacherUser?.firstName} {teacherUser?.lastName}! 
+                        Sie sind als Lehrkraft angemeldet.
+                      </p>
+                    </div>
+                    <Tabs defaultValue="text" className="w-full">
+                      <TabsList className="grid w-full grid-cols-2 mb-6">
+                        <TabsTrigger value="text">Feedback senden</TabsTrigger>
+                        <TabsTrigger value="polls">Umfragen</TabsTrigger>
+                      </TabsList>
+                      
+                      <TabsContent value="text">
+                        <FeedbackForm />
+                      </TabsContent>
+                      
+                      <TabsContent value="polls">
+                        <PollsSection />
+                      </TabsContent>
+                    </Tabs>
+                  </div>
+                )}
               </div>
             </TabsContent>
 

@@ -29,7 +29,7 @@ const Header = () => {
               <Button
                 onClick={() => window.location.href = '/teacher-register'}
                 variant="outline"
-                className="text-blue-600 border-blue-200 hover:bg-blue-50"
+                className="text-green-600 border-green-200 hover:bg-green-50 bg-green-50/30"
               >
                 Teacher Registration
               </Button>
