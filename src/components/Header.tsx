@@ -34,7 +34,7 @@ const Header = () => {
                 Teacher Registration
               </Button>
               <Button
-                onClick={() => window.open('https://www.mebis.bayern.de/', '_blank')}
+                onClick={() => window.location.href = '/teacher-login'}
                 variant="outline"
                 className="text-blue-600 border-blue-200 hover:bg-blue-50"
               >

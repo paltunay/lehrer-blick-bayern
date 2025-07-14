@@ -49,14 +49,24 @@ const TeacherRegister = () => {
       return;
     }
 
-    // Simulate registration (in real app, this would be an API call)
+    // Store user in localStorage
+    const teachers = JSON.parse(localStorage.getItem("teachers") || "[]");
+    const newTeacher = {
+      email,
+      firstName,
+      lastName,
+      password
+    };
+    teachers.push(newTeacher);
+    localStorage.setItem("teachers", JSON.stringify(teachers));
+
     setTimeout(() => {
       toast({
         title: "Registrierung erfolgreich",
         description: "Ihr Lehrer-Account wurde erfolgreich erstellt. Sie können sich nun anmelden.",
       });
       
-      navigate("/");
+      navigate("/teacher-login");
       setLoading(false);
     }, 1000);
   };
