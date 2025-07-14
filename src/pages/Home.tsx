@@ -12,12 +12,39 @@ const Home = () => {
   const [teacherUser, setTeacherUser] = useState<any>(null);
   useEffect(() => {
     // Check if teacher is logged in
-    const teacherAuthenticated = localStorage.getItem("teacher_authenticated") === "true";
-    const teacherUserData = localStorage.getItem("teacher_user");
-    if (teacherAuthenticated && teacherUserData) {
-      setIsTeacherLoggedIn(true);
-      setTeacherUser(JSON.parse(teacherUserData));
-    }
+    const checkTeacherAuth = () => {
+      const teacherAuthenticated = localStorage.getItem("teacher_authenticated") === "true";
+      const teacherUserData = localStorage.getItem("teacher_user");
+      
+      if (teacherAuthenticated && teacherUserData) {
+        setIsTeacherLoggedIn(true);
+        setTeacherUser(JSON.parse(teacherUserData));
+      } else {
+        setIsTeacherLoggedIn(false);
+        setTeacherUser(null);
+      }
+    };
+
+    // Initial check
+    checkTeacherAuth();
+    
+    // Listen for storage changes (when logout happens from header)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "teacher_authenticated" || e.key === "teacher_user") {
+        checkTeacherAuth();
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    
+    // Also listen for custom events (for same-tab changes)
+    const handleAuthChange = () => checkTeacherAuth();
+    window.addEventListener("teacherAuthChanged", handleAuthChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("teacherAuthChanged", handleAuthChange);
+    };
   }, []);
   return <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <Header />
