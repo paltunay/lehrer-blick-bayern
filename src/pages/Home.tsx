@@ -15,7 +15,6 @@ const Home = () => {
     const checkTeacherAuth = () => {
       const teacherAuthenticated = localStorage.getItem("teacher_authenticated") === "true";
       const teacherUserData = localStorage.getItem("teacher_user");
-      
       if (teacherAuthenticated && teacherUserData) {
         setIsTeacherLoggedIn(true);
         setTeacherUser(JSON.parse(teacherUserData));
@@ -27,20 +26,18 @@ const Home = () => {
 
     // Initial check
     checkTeacherAuth();
-    
+
     // Listen for storage changes (when logout happens from header)
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === "teacher_authenticated" || e.key === "teacher_user") {
         checkTeacherAuth();
       }
     };
-
     window.addEventListener("storage", handleStorageChange);
-    
+
     // Also listen for custom events (for same-tab changes)
     const handleAuthChange = () => checkTeacherAuth();
     window.addEventListener("teacherAuthChanged", handleAuthChange);
-
     return () => {
       window.removeEventListener("storage", handleStorageChange);
       window.removeEventListener("teacherAuthChanged", handleAuthChange);
@@ -227,9 +224,7 @@ const Home = () => {
           <p className="mb-2">
             © 2024 LehrerStimme Bayern - Eine Initiative für bessere Bildung
           </p>
-          <p className="text-sm text-blue-200">
-            Im Auftrag des Bayerischen Staatsministeriums für Unterricht und Kultus
-          </p>
+          <p className="text-sm text-blue-200">Im Auftrag von Zukunft Digitale Bildung</p>
           <div className="mt-4">
             <Button onClick={() => window.location.href = '/login'} variant="outline" className="text-blue-600 border-blue-200 hover:bg-blue-50">
               ZDB Login
