@@ -66,7 +66,7 @@ const Home = () => {
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
                     <Target className="h-8 w-8 text-blue-600 mb-3" />
-                    <h3 className="font-semibold text-gray-900 mb-2">Direkte Weiterleitung</h3>
+                    <h3 className="font-semibold text-gray-900 mb-2">Direkte Einflussnahme</h3>
                     <p className="text-gray-600 text-sm">
                       Ihr Feedback erreicht direkt die zuständigen Stellen im Kultusministerium.
                     </p>
