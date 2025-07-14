@@ -48,14 +48,16 @@ const FeedbackForm = () => {
   ];
 
   const categories = [
-    "Lehrplan und Curriculum",
-    "Arbeitsbedingungen",
-    "Ressourcen und Ausstattung",
-    "Digitalisierung",
-    "Inklusion und Förderung",
-    "Verwaltung und Bürokratie",
-    "Fortbildung und Entwicklung",
-    "Sonstiges",
+    "Digitale Infrastruktur und Technik",
+    "Digitale Lernplattformen und Software",
+    "Digitale Unterrichtsmethoden",
+    "Digitale Medien und Ressourcen",
+    "Digitale Bewertung und Prüfungen",
+    "Digitale Fortbildung für Lehrkräfte",
+    "Digitale Kommunikation und Zusammenarbeit",
+    "Technischer Support und Wartung",
+    "Datenschutz und Sicherheit",
+    "Sonstiges zur Digitalisierung",
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
