@@ -1,10 +1,7 @@
-
 import { MessageSquare, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const Header = () => {
-  return (
-    <header className="bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg">
+  return <header className="bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg">
       <div className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-6">
@@ -17,34 +14,18 @@ const Header = () => {
             </div>
             <div className="flex items-center space-x-3 pl-6 border-l border-blue-400">
               <span className="text-blue-100 text-sm font-medium">Ein Service von:</span>
-              <img 
-                src="/lovable-uploads/c9ee70a6-5fa5-466b-97f7-51be52c56702.png" 
-                alt="Zukunft Digitale Bildung Logo" 
-                className="h-16 w-auto"
-              />
+              <img src="/lovable-uploads/c9ee70a6-5fa5-466b-97f7-51be52c56702.png" alt="Zukunft Digitale Bildung Logo" className="h-16 w-auto" />
             </div>
           </div>
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <Button
-                onClick={() => window.location.href = '/teacher-register'}
-                variant="outline"
-                className="text-muted-foreground border-muted hover:bg-muted/20 bg-muted/10"
-              >
+              <Button onClick={() => window.location.href = '/teacher-register'} variant="outline" className="border-muted bg-neutral-500 hover:bg-neutral-400 text-[blue-60] text-slate-950">
                 Teacher Registration
               </Button>
-              <Button
-                onClick={() => window.location.href = '/teacher-login'}
-                variant="outline"
-                className="text-blue-600 border-blue-200 hover:bg-blue-50"
-              >
+              <Button onClick={() => window.location.href = '/teacher-login'} variant="outline" className="text-blue-600 border-blue-200 hover:bg-blue-50">
                 Teacher Login
               </Button>
-              <Button
-                onClick={() => window.location.href = '/login'}
-                variant="outline"
-                className="text-blue-600 border-blue-200 hover:bg-blue-50"
-              >
+              <Button onClick={() => window.location.href = '/login'} variant="outline" className="text-blue-600 border-blue-200 hover:bg-blue-50">
                 ZDB Login
               </Button>
             </div>
@@ -55,8 +36,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
