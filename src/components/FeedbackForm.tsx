@@ -21,6 +21,7 @@ interface FeedbackData {
   subject: string;
   message: string;
   anonymous: boolean;
+  pollResponses: Record<string, string>;
 }
 
 const FeedbackForm = () => {
@@ -35,6 +36,7 @@ const FeedbackForm = () => {
     subject: "",
     message: "",
     anonymous: false,
+    pollResponses: {},
   });
 
   const districts = [
@@ -57,6 +59,39 @@ const FeedbackForm = () => {
     "Fortbildung und Entwicklung",
     "Sonstiges",
   ];
+
+  const pollQuestions = [
+    {
+      id: "workload",
+      question: "Wie bewerten Sie Ihre aktuelle Arbeitsbelastung?",
+      options: ["Zu niedrig", "Angemessen", "Zu hoch", "Deutlich zu hoch"]
+    },
+    {
+      id: "digitization",
+      question: "Wie gut ist Ihre Schule digital ausgestattet?",
+      options: ["Sehr gut", "Gut", "Ausreichend", "Mangelhaft", "Ungenügend"]
+    },
+    {
+      id: "support",
+      question: "Wie zufrieden sind Sie mit der Unterstützung durch das Kultusministerium?",
+      options: ["Sehr zufrieden", "Zufrieden", "Neutral", "Unzufrieden", "Sehr unzufrieden"]
+    },
+    {
+      id: "training",
+      question: "Wie bewerten Sie das Fortbildungsangebot für Lehrkräfte?",
+      options: ["Sehr gut", "Gut", "Ausreichend", "Mangelhaft", "Ungenügend"]
+    }
+  ];
+
+  const handlePollResponse = (questionId: string, value: string) => {
+    setFormData({
+      ...formData,
+      pollResponses: {
+        ...formData.pollResponses,
+        [questionId]: value
+      }
+    });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,6 +138,7 @@ const FeedbackForm = () => {
       subject: "",
       message: "",
       anonymous: false,
+      pollResponses: {},
     });
   };
 
@@ -250,6 +286,38 @@ const FeedbackForm = () => {
               className="min-h-32"
               required
             />
+          </div>
+
+          {/* Poll Questions */}
+          <div className="space-y-6 border-t pt-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Umfragefragen (optional)</h3>
+            {pollQuestions.map((poll) => (
+              <div key={poll.id} className="space-y-3">
+                <Label className="text-sm font-medium text-gray-700">
+                  {poll.question}
+                </Label>
+                <RadioGroup
+                  value={formData.pollResponses[poll.id] || ""}
+                  onValueChange={(value) => handlePollResponse(poll.id, value)}
+                  className="space-y-2"
+                >
+                  {poll.options.map((option) => (
+                    <div key={option} className="flex items-center space-x-2">
+                      <RadioGroupItem 
+                        value={option} 
+                        id={`${poll.id}-${option}`} 
+                      />
+                      <Label 
+                        htmlFor={`${poll.id}-${option}`}
+                        className="text-sm text-gray-600 cursor-pointer"
+                      >
+                        {option}
+                      </Label>
+                    </div>
+                  ))}
+                </RadioGroup>
+              </div>
+            ))}
           </div>
 
           <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
