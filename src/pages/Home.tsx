@@ -6,25 +6,20 @@ import Header from "@/components/Header";
 import FeedbackForm from "@/components/FeedbackForm";
 import PollsSection from "@/components/PollsSection";
 import { MessageSquareText, Info, Shield, Users, Target, Vote, Home as HomeIcon, AlertCircle } from "lucide-react";
-
 const Home = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [isTeacherLoggedIn, setIsTeacherLoggedIn] = useState(false);
   const [teacherUser, setTeacherUser] = useState<any>(null);
-
   useEffect(() => {
     // Check if teacher is logged in
     const teacherAuthenticated = localStorage.getItem("teacher_authenticated") === "true";
     const teacherUserData = localStorage.getItem("teacher_user");
-    
     if (teacherAuthenticated && teacherUserData) {
       setIsTeacherLoggedIn(true);
       setTeacherUser(JSON.parse(teacherUserData));
     }
   }, []);
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+  return <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <Header />
       
       {/* Hero Section */}
@@ -79,9 +74,7 @@ const Home = () => {
                   <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
                     <Users className="h-8 w-8 text-blue-600 mb-3" />
                     <h3 className="font-semibold text-gray-900 mb-2">Gemeinsam stark</h3>
-                    <p className="text-gray-600 text-sm">
-                      Ihre Erfahrungen fließen in wichtige bildungspolitische Entscheidungen ein.
-                    </p>
+                    <p className="text-gray-600 text-sm">Wir vertreten Ihre Vorschläge, um gemeinsam eine digitalere und bessere Bildungslandschaft in Bayern zu schaffen</p>
                   </div>
                 </div>
 
@@ -94,16 +87,13 @@ const Home = () => {
                     Diese Plattform wurde entwickelt, um Lehrkräften in Bayern eine direkte 
                     Kommunikationsmöglichkeit mit dem Kultusministerium zu bieten.
                   </p>
-                  <Button 
-                    onClick={() => {
-                      if (isTeacherLoggedIn) {
-                        setActiveTab("feedback");
-                      } else {
-                        window.location.href = '/teacher-login';
-                      }
-                    }}
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
-                  >
+                  <Button onClick={() => {
+                  if (isTeacherLoggedIn) {
+                    setActiveTab("feedback");
+                  } else {
+                    window.location.href = '/teacher-login';
+                  }
+                }} className="bg-blue-600 hover:bg-blue-700 text-white">
                     {isTeacherLoggedIn ? 'Feedback geben' : 'Anmelden für Feedback'}
                   </Button>
                 </div>
@@ -112,8 +102,7 @@ const Home = () => {
 
             <TabsContent value="feedback" className="flex justify-center">
               <div className="w-full max-w-4xl">
-                {!isTeacherLoggedIn ? (
-                  <div className="bg-white rounded-lg shadow-sm border border-blue-100 p-8 text-center">
+                {!isTeacherLoggedIn ? <div className="bg-white rounded-lg shadow-sm border border-blue-100 p-8 text-center">
                     <AlertCircle className="h-16 w-16 text-blue-600 mx-auto mb-4" />
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       Anmeldung erforderlich
@@ -124,23 +113,14 @@ const Home = () => {
                       können an der Feedback-Plattform teilnehmen.
                     </p>
                     <div className="flex justify-center space-x-4">
-                      <Button 
-                        onClick={() => window.location.href = '/teacher-login'}
-                        className="bg-blue-600 hover:bg-blue-700 text-white"
-                      >
+                      <Button onClick={() => window.location.href = '/teacher-login'} className="bg-blue-600 hover:bg-blue-700 text-white">
                         Anmelden
                       </Button>
-                      <Button 
-                        onClick={() => window.location.href = '/teacher-register'}
-                        variant="outline"
-                        className="text-green-600 border-green-200 hover:bg-green-50"
-                      >
+                      <Button onClick={() => window.location.href = '/teacher-register'} variant="outline" className="text-green-600 border-green-200 hover:bg-green-50">
                         Registrieren
                       </Button>
                     </div>
-                  </div>
-                ) : (
-                  <div>
+                  </div> : <div>
                     <div className="bg-white rounded-lg shadow-sm border border-blue-100 p-4 mb-6">
                       <p className="text-green-600 font-medium">
                         Willkommen, {teacherUser?.firstName} {teacherUser?.lastName}! 
@@ -161,8 +141,7 @@ const Home = () => {
                         <PollsSection />
                       </TabsContent>
                     </Tabs>
-                  </div>
-                )}
+                  </div>}
               </div>
             </TabsContent>
 
@@ -235,8 +214,6 @@ const Home = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
