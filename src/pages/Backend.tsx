@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import FeedbackDashboard from "@/components/FeedbackDashboard";
+import FeedbackAISummary from "@/components/FeedbackAISummary";
 import PollResults from "@/components/PollResults";
-import { BarChart3, TrendingUp, LogOut, Users, MessageSquare } from "lucide-react";
+import { BarChart3, TrendingUp, LogOut, Users, MessageSquare, Brain } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const Backend = () => {
@@ -60,7 +61,7 @@ const Backend = () => {
 
       <div className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="overview" className="flex items-center space-x-2">
               <BarChart3 className="h-4 w-4" />
               <span>Übersicht</span>
@@ -68,6 +69,10 @@ const Backend = () => {
             <TabsTrigger value="feedback" className="flex items-center space-x-2">
               <MessageSquare className="h-4 w-4" />
               <span>Feedback</span>
+            </TabsTrigger>
+            <TabsTrigger value="ai-summary" className="flex items-center space-x-2">
+              <Brain className="h-4 w-4" />
+              <span>KI-Analyse</span>
             </TabsTrigger>
             <TabsTrigger value="polls" className="flex items-center space-x-2">
               <TrendingUp className="h-4 w-4" />
@@ -124,6 +129,7 @@ const Backend = () => {
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-gray-600">
                   <li><strong>Feedback:</strong> Detaillierte Übersicht aller eingereichten Feedback-Beiträge</li>
+                  <li><strong>KI-Analyse:</strong> Intelligente Auswertung und Erkenntnisse aus dem Feedback</li>
                   <li><strong>Umfrageergebnisse:</strong> Visualisierung und Analyse der Umfragedaten</li>
                 </ul>
               </CardContent>
@@ -132,6 +138,10 @@ const Backend = () => {
 
           <TabsContent value="feedback">
             <FeedbackDashboard />
+          </TabsContent>
+
+          <TabsContent value="ai-summary">
+            <FeedbackAISummary />
           </TabsContent>
 
           <TabsContent value="polls">
