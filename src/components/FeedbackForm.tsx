@@ -171,24 +171,26 @@ const FeedbackForm = () => {
             <RadioGroup value={formData.priority} onValueChange={value => setFormData({
             ...formData,
             priority: value
-          })} className="flex space-x-6 mt-2">
+          })} className="flex flex-col space-y-2 mt-2">
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="niedrig" id="niedrig" />
-                <Label htmlFor="niedrig">Betrifft mich persönlich</Label>
+                <RadioGroupItem value="unterricht" id="unterricht" />
+                <Label htmlFor="unterricht">Betrifft meinen Unterricht</Label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="mittel" id="mittel" />
-                <Label htmlFor="mittel">Betrifft L meines Fachs</Label>
+                <RadioGroupItem value="fach" id="fach" />
+                <Label htmlFor="fach">Betrifft Unterricht meines Fachs</Label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="hoch" id="hoch" />
-                <Label htmlFor="hoch">Hoch
-
-              </Label>
+                <RadioGroupItem value="saemtlicher-unterricht" id="saemtlicher-unterricht" />
+                <Label htmlFor="saemtlicher-unterricht">Betrifft sämtlichen Unterricht</Label>
               </div>
               <div className="flex items-center space-x-2">
-                <RadioGroupItem value="dringend" id="dringend" />
-                <Label htmlFor="dringend">Dringend</Label>
+                <RadioGroupItem value="schule" id="schule" />
+                <Label htmlFor="schule">Betrifft meine Schule</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="saemtliche-schulen" id="saemtliche-schulen" />
+                <Label htmlFor="saemtliche-schulen">Betrifft sämtliche Schulen</Label>
               </div>
             </RadioGroup>
           </div>
