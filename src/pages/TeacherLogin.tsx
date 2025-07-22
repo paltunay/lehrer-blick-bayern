@@ -129,6 +129,11 @@ const TeacherLogin = () => {
           </form>
           
           <div className="mt-6 text-center text-sm text-gray-600">
+            <div className="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <p className="font-medium text-blue-800 mb-2">🚀 Bald verfügbar:</p>
+              <p className="text-blue-700">Anmeldung per Einmalcode an Ihre @schule.bayern.de E-Mail-Adresse</p>
+            </div>
+            
             <p>Noch kein Account?</p>
             <div className="mt-2">
               <Button 
