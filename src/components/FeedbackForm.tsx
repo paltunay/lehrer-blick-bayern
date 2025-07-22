@@ -64,7 +64,7 @@ const FeedbackForm = () => {
     localStorage.setItem("teacherFeedback", JSON.stringify(existingFeedback));
     toast({
       title: "Feedback erfolgreich gesendet",
-      description: "Vielen Dank für Ihr Feedback. Es wurde an das Kultusministerium weitergeleitet."
+      description: "Vielen Dank für Ihr Feedback. Es wurde an Zukunft Digitale Bildung weitergeleitet."
     });
 
     // Reset form
