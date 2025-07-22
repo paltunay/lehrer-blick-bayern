@@ -122,14 +122,8 @@ const Home = () => {
               <div className="w-full max-w-4xl">
                 {!isTeacherLoggedIn ? <div className="bg-white rounded-lg shadow-sm border border-blue-100 p-8 text-center">
                     <AlertCircle className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      Anmeldung erforderlich
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      Um Feedback zu geben, müssen Sie sich als Lehrkraft anmelden. 
-                      Nur verifizierte Lehrkräfte mit einer @schule.bayern.de E-Mail-Adresse 
-                      können an der Feedback-Plattform teilnehmen.
-                    </p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Wir müssen sicherstellen, dass Sie eine Lehrkraft sind</h3>
+                    <p className="text-gray-600 mb-6">Um Missbrauch zu vermeiden dürfen nur verifizierte Lehrkräfte mit einer @schule.bayern.de E-Mail-Adresse an der Feedback-Plattform teilnehmen. Wir bitten um Verständnis.</p>
                     <div className="flex justify-center space-x-4">
                       <Button onClick={() => window.location.href = '/teacher-login'} className="bg-blue-600 hover:bg-blue-700 text-white">
                         Anmelden
