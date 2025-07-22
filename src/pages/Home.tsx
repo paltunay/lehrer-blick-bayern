@@ -49,9 +49,7 @@ const Home = () => {
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Ihre Stimme für bessere Bildung in Bayern
-          </h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Wir verstärken Ihre Stimme für bessere Bildung in Bayern</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">Als Lehrkraft erleben Sie die Chancen und Herausforderungen digitaler Bildung direkt. Teilen Sie Ihr Feedback direkt mit uns und helfen Sie dabei, das Bildungssystem zu verbessern.</p>
         </div>
 
