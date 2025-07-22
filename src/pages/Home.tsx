@@ -173,11 +173,7 @@ const Home = () => {
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-lg font-semibold text-gray-800 mb-2">Unser Ziel</h4>
-                    <p className="text-gray-600">
-                      Diese Plattform wurde entwickelt, um Lehrkräften in Bayern eine direkte Kommunikationsmöglichkeit 
-                      mit dem Kultusministerium zu bieten. Ihre Erfahrungen und Vorschläge sind wertvoll für die 
-                      Weiterentwicklung des bayerischen Bildungssystems.
-                    </p>
+                    <p className="text-gray-600">LehrerStimme Bayern ist eine unabhängige Plattform, die von der gemeinnützigen Organisation Zukunft Digitale Bildung betrieben wird. Unser Ziel ist es, Lehrkräften in Bayern eine Stimme zu geben – direkt, unkompliziert und vertraulich.</p>
                   </div>
 
                   <div>
