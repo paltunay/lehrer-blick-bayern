@@ -66,13 +66,13 @@ const Home = () => {
                 <MessageSquareText className="h-4 w-4" />
                 <span>Feedback geben</span>
               </TabsTrigger>
-              <TabsTrigger value="faq" className="flex items-center space-x-2">
-                <HelpCircle className="h-4 w-4" />
-                <span>FAQ</span>
-              </TabsTrigger>
               <TabsTrigger value="info" className="flex items-center space-x-2">
                 <Info className="h-4 w-4" />
                 <span>Informationen</span>
+              </TabsTrigger>
+              <TabsTrigger value="faq" className="flex items-center space-x-2">
+                <HelpCircle className="h-4 w-4" />
+                <span>FAQ</span>
               </TabsTrigger>
             </TabsList>
 
