@@ -181,6 +181,13 @@ Wir möchten Lehrkräften die Möglichkeit bieten, ihre Erfahrungen und Perspekt
                   </div>
 
                   <div>
+                    <h4 className="text-lg font-semibold text-gray-800 mb-2">Unabhängigkeit</h4>
+                    <p className="text-gray-600">
+                      LehrerStimme Bayern ist nicht staatlich betrieben. Die Plattform ist unabhängig von politischen oder behördlichen Strukturen. Alle Rückmeldungen werden ausschließlich von Zukunft Digitale Bildung ausgewertet und nicht automatisch an staatliche Stellen weitergeleitet.
+                    </p>
+                  </div>
+
+                  <div>
                     <h4 className="text-lg font-semibold text-gray-800 mb-2">Datenschutz</h4>
                     <p className="text-gray-600">
                       Wir nehmen den Schutz Ihrer Daten ernst. Sie können wählen, ob Sie Ihr Feedback anonym 
