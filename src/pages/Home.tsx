@@ -5,7 +5,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import Header from "@/components/Header";
 import FeedbackForm from "@/components/FeedbackForm";
 import PollsSection from "@/components/PollsSection";
-import { MessageSquareText, Info, Shield, Users, Target, Vote, Home as HomeIcon, AlertCircle } from "lucide-react";
+import FAQ from "@/components/FAQ";
+import { MessageSquareText, Info, Shield, Users, Target, Vote, Home as HomeIcon, AlertCircle, HelpCircle } from "lucide-react";
 const Home = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [isTeacherLoggedIn, setIsTeacherLoggedIn] = useState(false);
@@ -56,7 +57,7 @@ const Home = () => {
         {/* Main Content */}
         <div className="flex justify-center">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-5xl">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsList className="grid w-full grid-cols-4 mb-8">
               <TabsTrigger value="home" className="flex items-center space-x-2">
                 <HomeIcon className="h-4 w-4" />
                 <span>Home</span>
@@ -64,6 +65,10 @@ const Home = () => {
               <TabsTrigger value="feedback" className="flex items-center space-x-2">
                 <MessageSquareText className="h-4 w-4" />
                 <span>Feedback geben</span>
+              </TabsTrigger>
+              <TabsTrigger value="faq" className="flex items-center space-x-2">
+                <HelpCircle className="h-4 w-4" />
+                <span>FAQ</span>
               </TabsTrigger>
               <TabsTrigger value="info" className="flex items-center space-x-2">
                 <Info className="h-4 w-4" />
@@ -155,6 +160,10 @@ const Home = () => {
                     </Tabs>
                   </div>}
               </div>
+            </TabsContent>
+
+            <TabsContent value="faq" className="flex justify-center">
+              <FAQ />
             </TabsContent>
 
             <TabsContent value="info" className="flex justify-center">
