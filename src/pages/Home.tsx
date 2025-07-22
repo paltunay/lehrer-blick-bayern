@@ -207,10 +207,8 @@ Wir möchten Lehrkräften die Möglichkeit bieten, ihre Erfahrungen und Perspekt
 
                   <div>
                     <h4 className="text-lg font-semibold text-gray-800 mb-2">Kontakt</h4>
-                    <p className="text-gray-600">
-                      Bei Fragen zur Plattform oder zum Feedback-Prozess wenden Sie sich an das 
-                      Bayerische Staatsministerium für Unterricht und Kultus.
-                    </p>
+                    <p className="text-gray-600">Bei Fragen zur Plattform oder zum Projekt wenden Sie sich gerne direkt an Zukunft Digitale Bildung:
+📧 kontakt@zukunft-digitale-bildung.de</p>
                   </div>
                 </div>
               </div>
