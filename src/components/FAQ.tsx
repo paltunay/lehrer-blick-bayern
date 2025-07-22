@@ -8,6 +8,10 @@ import {
 const FAQ = () => {
   const faqData = [
     {
+      question: "Wer steht hinter der Plattform?",
+      answer: "Die Plattform wird als gemeinnütziges, unabhängiges Projekt ohne Regierungsbezug von der NGO Zukunft Digitale Bildung betrieben. Mehr Informationen finden sie auf https://zukunft-digitale-bildung.de/"
+    },
+    {
       question: "Wer kann an der Feedback-Plattform teilnehmen?",
       answer: "Nur verifizierte Lehrkräfte mit einer @schule.bayern.de E-Mail-Adresse können an der Feedback-Plattform teilnehmen. Dies dient dazu, Missbrauch zu vermeiden und sicherzustellen, dass das Feedback von echten Lehrkräften kommt."
     },
@@ -17,7 +21,7 @@ const FAQ = () => {
     },
     {
       question: "Was passiert mit meinem Feedback?",
-      answer: "Ihr Feedback wird gesammelt, analysiert und direkt an das Bayerische Staatsministerium für Unterricht und Kultus weitergeleitet. Es fließt in die Entscheidungsfindung zur Verbesserung des Bildungssystems ein."
+      answer: "Wir möchten Ihnen eine Stimme geben. Deshalb wird Ihr Feedback wird gesammelt, analysiert und im Rahmen unserer Arbeit zur Verbesserung der digitalen Bildung als NGO verwendet."
     },
     {
       question: "Warum ist eine Registrierung notwendig?",
@@ -36,16 +40,8 @@ const FAQ = () => {
       answer: "Ja, Sie können jederzeit neues Feedback geben. Jedes Feedback wird separat behandelt und weitergeleitet."
     },
     {
-      question: "Erhalte ich eine Antwort auf mein Feedback?",
-      answer: "Wenn Sie Ihre Kontaktdaten angeben, können Sie eine Rückmeldung erhalten. Bei anonymem Feedback ist dies nicht möglich. Allgemeine Entwicklungen werden jedoch über offizielle Kanäle kommuniziert."
-    },
-    {
-      question: "Was sind die technischen Voraussetzungen?",
-      answer: "Sie benötigen einen aktuellen Webbrowser und eine stabile Internetverbindung. Die Plattform funktioniert auf allen gängigen Geräten (Computer, Tablet, Smartphone)."
-    },
-    {
       question: "An wen kann ich mich bei Problemen wenden?",
-      answer: "Bei technischen Problemen oder Fragen zur Plattform wenden Sie sich an das Bayerische Staatsministerium für Unterricht und Kultus oder nutzen Sie die entsprechenden Kontaktkanäle."
+      answer: "Bei technischen Problemen oder Fragen zur Plattform wenden Sie sich an info@zukunft-digitale-bildung.de"
     }
   ];
 
