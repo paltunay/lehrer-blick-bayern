@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/components/ui/use-toast";
 import { Mail, User, Lock, School } from "lucide-react";
-
 const TeacherRegister = () => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -17,12 +16,12 @@ const TeacherRegister = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const validateEmail = (email: string) => {
     return email.endsWith("@schule.bayern.de");
   };
-
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -59,20 +58,16 @@ const TeacherRegister = () => {
     };
     teachers.push(newTeacher);
     localStorage.setItem("teachers", JSON.stringify(teachers));
-
     setTimeout(() => {
       toast({
         title: "Registrierung erfolgreich",
-        description: "Ihr Lehrer-Account wurde erfolgreich erstellt. Sie können sich nun anmelden.",
+        description: "Ihr Lehrer-Account wurde erfolgreich erstellt. Sie können sich nun anmelden."
       });
-      
       navigate("/teacher-login");
       setLoading(false);
     }, 1000);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center px-4">
+  return <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white flex items-center justify-center px-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex items-center justify-center mb-4">
@@ -90,15 +85,7 @@ const TeacherRegister = () => {
                 <Label htmlFor="firstName">Vorname</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="firstName"
-                    type="text"
-                    placeholder="Vorname"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    className="pl-10"
-                    required
-                  />
+                  <Input id="firstName" type="text" placeholder="Vorname" value={firstName} onChange={e => setFirstName(e.target.value)} className="pl-10" required />
                 </div>
               </div>
               
@@ -106,15 +93,7 @@ const TeacherRegister = () => {
                 <Label htmlFor="lastName">Nachname</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="lastName"
-                    type="text"
-                    placeholder="Nachname"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    className="pl-10"
-                    required
-                  />
+                  <Input id="lastName" type="text" placeholder="Nachname" value={lastName} onChange={e => setLastName(e.target.value)} className="pl-10" required />
                 </div>
               </div>
             </div>
@@ -123,15 +102,7 @@ const TeacherRegister = () => {
               <Label htmlFor="email">E-Mail-Adresse</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="name@schule.bayern.de"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10"
-                  required
-                />
+                <Input id="email" type="email" placeholder="name@schule.bayern.de" value={email} onChange={e => setEmail(e.target.value)} className="pl-10" required />
               </div>
             </div>
             
@@ -139,15 +110,7 @@ const TeacherRegister = () => {
               <Label htmlFor="password">Passwort</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Passwort eingeben"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10"
-                  required
-                />
+                <Input id="password" type="password" placeholder="Passwort eingeben" value={password} onChange={e => setPassword(e.target.value)} className="pl-10" required />
               </div>
             </div>
 
@@ -155,29 +118,15 @@ const TeacherRegister = () => {
               <Label htmlFor="confirmPassword">Passwort bestätigen</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                <Input
-                  id="confirmPassword"
-                  type="password"
-                  placeholder="Passwort bestätigen"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="pl-10"
-                  required
-                />
+                <Input id="confirmPassword" type="password" placeholder="Passwort bestätigen" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} className="pl-10" required />
               </div>
             </div>
 
-            {error && (
-              <Alert variant="destructive">
+            {error && <Alert variant="destructive">
                 <AlertDescription>{error}</AlertDescription>
-              </Alert>
-            )}
+              </Alert>}
 
-            <Button 
-              type="submit" 
-              className="w-full bg-blue-600 hover:bg-blue-700"
-              disabled={loading}
-            >
+            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={loading}>
               {loading ? "Registrierung läuft..." : "Registrieren"}
             </Button>
           </form>
@@ -185,24 +134,18 @@ const TeacherRegister = () => {
           <div className="mt-6 text-center text-sm text-gray-600">
             <div className="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
               <p className="font-medium text-blue-800 mb-2">🚀 Bald verfügbar:</p>
-              <p className="text-blue-700">Registrierung per Einmalcode an Ihre @schule.bayern.de E-Mail-Adresse</p>
+              <p className="text-blue-700">Login ohne Registrierung per Einmalcode an Ihre @schule.bayern.de E-Mail-Adresse</p>
             </div>
             
             <p>Nur Lehrkräfte mit einer gültigen @schule.bayern.de E-Mail-Adresse können sich registrieren.</p>
             <div className="mt-2">
-              <Button 
-                variant="link" 
-                onClick={() => navigate("/")}
-                className="text-blue-600 hover:text-blue-700"
-              >
+              <Button variant="link" onClick={() => navigate("/")} className="text-blue-600 hover:text-blue-700">
                 Zurück zur Startseite
               </Button>
             </div>
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default TeacherRegister;
